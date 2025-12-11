@@ -1,0 +1,531 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories | Lampung Explorer</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        .hero-bg-stories {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), 
+                        url("https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80");
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .story-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .category-tab {
+            transition: all 0.3s ease;
+        }
+        
+        .category-tab.active {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .featured-story {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2);
+        }
+        
+        .story-image {
+            transition: transform 0.5s ease;
+        }
+        
+        .story-card:hover .story-image {
+            transform: scale(1.05);
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation - SAMA PERSIS dengan halaman lain -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center">
+                        <i class="fas fa-mountain text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Lampung Explorer</div>
+                        <div class="text-xs text-gray-500">Discover Hidden Indonesia</div>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
+                    <a href="explore.html" class="text-gray-700 hover:text-primary font-medium">Explore</a>
+                    <a href="stories.html" class="text-primary font-semibold border-b-2 border-primary">Stories</a>
+                    <a href="Itinerary.html" class="text-gray-700 hover:text-primary font-medium">Itinerary</a>
+                    <a href="resources.html" class="text-gray-700 hover:text-primary font-medium">Resources</a>
+                </div>
+                <a href="#" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                    Share Story
+                </a>
+                <button class="md:hidden">
+                    <i class="fas fa-bars text-xl text-gray-700"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg-stories text-white py-20 md:py-28">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Community Stories
+            </h1>
+            <p class="text-xl mb-10 max-w-3xl mx-auto">
+                Real experiences from travelers, language keepers, and cultural explorers. Discover authentic stories that go beyond the surface.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-12">
+        <!-- Featured Story -->
+        <section class="mb-16">
+            <div class="featured-story p-8 md:p-12 text-white">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-2/3">
+                        <div class="inline-block bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-semibold mb-4">
+                            Featured Story
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">The Last Speaker of Lampung's Ancient Dialect</h2>
+                        <p class="text-white/90 mb-6 text-lg">
+                            Meeting 87-year-old Mbah Sari, the only living person who fluently speaks the original Lampung Peminggir dialect. A journey into language preservation and cultural memory.
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="author-avatar">MS</div>
+                            <div>
+                                <div class="font-bold">Maya Sari</div>
+                                <div class="text-white/70 text-sm">Cultural Anthropologist • 3 days ago</div>
+                            </div>
+                            <a href="#" class="ml-auto bg-white text-primary px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">
+                                Read Story →
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3">
+                        <div class="h-64 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Tabs -->
+        <section class="mb-12">
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button class="category-tab active px-6 py-3 rounded-full bg-white shadow-md font-medium">
+                    All Stories
+                </button>
+                <button class="category-tab px-6 py-3 rounded-full bg-white shadow-md font-medium hover:shadow-lg">
+                    Language
+                </button>
+                <button class="category-tab px-6 py-3 rounded-full bg-white shadow-md font-medium hover:shadow-lg">
+                    Traditions
+                </button>
+                <button class="category-tab px-6 py-3 rounded-full bg-white shadow-md font-medium hover:shadow-lg">
+                    Food Culture
+                </button>
+                <button class="category-tab px-6 py-3 rounded-full bg-white shadow-md font-medium hover:shadow-lg">
+                    Local Wisdom
+                </button>
+                <button class="category-tab px-6 py-3 rounded-full bg-white shadow-md font-medium hover:shadow-lg">
+                    Travel Diaries
+                </button>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-2">
+                    <div class="flex">
+                        <div class="flex-1 p-4">
+                            <input type="text" 
+                                   placeholder="Search stories by keyword, author, or location..."
+                                   class="w-full border-none focus:outline-none text-lg text-gray-700">
+                        </div>
+                        <button class="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-8 font-semibold rounded-lg hover:opacity-90">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stories Grid -->
+        <section class="mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Story 1 -->
+                <div class="story-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-blue-100 to-blue-300 overflow-hidden">
+                        <div class="story-image h-full w-full bg-gradient-to-br from-blue-200 to-cyan-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">
+                                Language
+                            </span>
+                            <span class="text-gray-500 text-sm">4 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Rediscovering My Roots Through Language</h3>
+                        <p class="text-gray-600 mb-4">
+                            How learning the Lampung dialect connected me to ancestral traditions I never knew existed...
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                                    AR
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Ahmad Rizki</div>
+                                    <div class="text-gray-500 text-sm">2 days ago</div>
+                                </div>
+                            </div>
+                            <a href="#" class="text-primary font-semibold hover:underline">
+                                Read →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story 2 -->
+                <div class="story-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-purple-100 to-purple-300 overflow-hidden">
+                        <div class="story-image h-full w-full bg-gradient-to-br from-purple-200 to-pink-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
+                                Traditions
+                            </span>
+                            <span class="text-gray-500 text-sm">7 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Weaving Stories: The Art of Tapis Lampung</h3>
+                        <p class="text-gray-600 mb-4">
+                            Learning traditional weaving from master artisans in Liwa. Each thread tells a story of heritage and identity.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                                    PW
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Putri Wulandari</div>
+                                    <div class="text-gray-500 text-sm">1 week ago</div>
+                                </div>
+                            </div>
+                            <a href="#" class="text-primary font-semibold hover:underline">
+                                Read →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story 3 -->
+                <div class="story-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-orange-100 to-orange-300 overflow-hidden">
+                        <div class="story-image h-full w-full bg-gradient-to-br from-orange-200 to-red-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">
+                                Food Culture
+                            </span>
+                            <span class="text-gray-500 text-sm">5 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Seruit: More Than Just a Meal</h3>
+                        <p class="text-gray-600 mb-4">
+                            Discovering how this traditional Lampung dish brings communities together and preserves culinary heritage.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                                    BS
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Budi Santoso</div>
+                                    <div class="text-gray-500 text-sm">2 weeks ago</div>
+                                </div>
+                            </div>
+                            <a href="#" class="text-primary font-semibold hover:underline">
+                                Read →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story 4 -->
+                <div class="story-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-green-100 to-green-300 overflow-hidden">
+                        <div class="story-image h-full w-full bg-gradient-to-br from-green-200 to-emerald-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
+                                Local Wisdom
+                            </span>
+                            <span class="text-gray-500 text-sm">8 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Pesenggiri: The Philosophy of Lampung Honor</h3>
+                        <p class="text-gray-600 mb-4">
+                            Understanding the traditional values that guide social interactions and community life in Lampung society.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                                    RS
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Rina Sari</div>
+                                    <div class="text-gray-500 text-sm">3 weeks ago</div>
+                                </div>
+                            </div>
+                            <a href="#" class="text-primary font-semibold hover:underline">
+                                Read →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story 5 -->
+                <div class="story-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-cyan-100 to-cyan-300 overflow-hidden">
+                        <div class="story-image h-full w-full bg-gradient-to-br from-cyan-200 to-blue-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full text-sm font-semibold">
+                                Travel Diaries
+                            </span>
+                            <span class="text-gray-500 text-sm">6 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">A Month in Way Kambas National Park</h3>
+                        <p class="text-gray-600 mb-4">
+                            Living with the indigenous communities surrounding Sumatra's last remaining lowland rainforest.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                                    DF
+                                </div>
+                                <div>
+                                    <div class="font-semibold">David Foster</div>
+                                    <div class="text-gray-500 text-sm">1 month ago</div>
+                                </div>
+                            </div>
+                            <a href="#" class="text-primary font-semibold hover:underline">
+                                Read →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Story 6 -->
+                <div class="story-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-pink-100 to-pink-300 overflow-hidden">
+                        <div class="story-image h-full w-full bg-gradient-to-br from-pink-200 to-rose-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm font-semibold">
+                                Music & Arts
+                            </span>
+                            <span class="text-gray-500 text-sm">9 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">The Rhythms of Talo Balak</h3>
+                        <p class="text-gray-600 mb-4">
+                            Documenting Lampung's traditional music and its role in storytelling and cultural transmission.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-gradient-to-r from-pink-400 to-rose-500 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                                    LS
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Lina Suryani</div>
+                                    <div class="text-gray-500 text-sm">1 month ago</div>
+                                </div>
+                            </div>
+                            <a href="#" class="text-primary font-semibold hover:underline">
+                                Read →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Load More Button -->
+        <div class="text-center mb-20">
+            <button class="bg-gradient-to-r from-primary to-secondary text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity shadow-lg">
+                Load More Stories
+            </button>
+        </div>
+
+        <!-- Share Your Story CTA -->
+        <section class="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 md:p-12 mb-16">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold mb-4">Have a Story to Share?</h2>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Your experiences matter. Share your cultural discoveries, language journeys, or traditional knowledge with our community.
+                </p>
+                <a href="#" class="inline-block bg-gradient-to-r from-primary to-secondary text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity shadow-lg">
+                    <i class="fas fa-pen-fancy mr-2"></i> Write Your Story
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer - SAMA PERSIS dengan halaman lain -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center">
+                            <i class="fas fa-mountain text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold">Lampung Explorer</div>
+                            <div class="text-xs text-gray-400">Discover Hidden Indonesia</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Discovering hidden cultures through language and tradition across Indonesia's diverse archipelago.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="explore.html" class="text-gray-400 hover:text-white">Explore</a></li>
+                        <li><a href="stories.html" class="text-gray-400 hover:text-white">Stories</a></li>
+                        <li><a href="Itinerary.html" class="text-gray-400 hover:text-white">Itinerary</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white">Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Story Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Language Journeys</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Traditional Crafts</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Cultural Festivals</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Local Wisdom</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Travel Diaries</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i> stories@lampungexplorer.id
+                        </li>
+                        <li class="text-gray-400">
+                            <i class="fas fa-phone mr-2"></i> +62 21 1234 5679
+                        </li>
+                        <li class="text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-2"></i> Bandar Lampung, Indonesia
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-block mt-4 bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-lg font-semibold hover:opacity-90">
+                        Submit Your Story
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">© 2024 Lampung Explorer | Built with Tailwind CSS + npm</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Category tabs functionality
+        document.querySelectorAll('.category-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.category-tab').forEach(t => {
+                    t.classList.remove('active');
+                    t.classList.remove('bg-gradient-to-r', 'from-primary', 'to-secondary', 'text-white');
+                    t.classList.add('bg-white', 'text-gray-700');
+                });
+                
+                this.classList.add('active');
+                this.classList.add('bg-gradient-to-r', 'from-primary', 'to-secondary', 'text-white');
+                this.classList.remove('bg-white', 'text-gray-700');
+                
+                const category = this.textContent;
+                console.log(`Filtering stories by: ${category}`);
+            });
+        });
+        
+        // Search functionality
+        const searchBtn = document.querySelector('.bg-gradient-to-r.from-amber-400');
+        const searchInput = document.querySelector('input[type="text"]');
+        
+        searchBtn.addEventListener('click', () => {
+            if(searchInput.value.trim()) {
+                alert(`Searching stories for: "${searchInput.value}"`);
+            } else {
+                searchInput.focus();
+            }
+        });
+        
+        searchInput.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+        
+        // Story cards click
+        document.querySelectorAll('a.text-primary.font-semibold').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if(this.textContent.includes('Read')) {
+                    e.preventDefault();
+                    const storyTitle = this.closest('.story-card').querySelector('h3').textContent;
+                    alert(`Loading story: "${storyTitle}"`);
+                }
+            });
+        });
+        
+        // Load more button
+        document.querySelector('button.bg-gradient-to-r.from-primary').addEventListener('click', function() {
+            alert('Loading more stories...');
+        });
+        
+        // Write story button
+        document.querySelector('a[href="#"].inline-block.bg-gradient-to-r.from-primary').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Opening story submission form...');
+        });
+    </script>
+</body>
+</html>
