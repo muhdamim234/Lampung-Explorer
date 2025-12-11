@@ -16,7 +16,7 @@ export function renderNavigation() {
                 <div class="hidden md:flex space-x-6">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="explore.html" class="nav-link">Explore</a>
-                    <a href="pulse.html" class="nav-link">Cultural Pulse</a>
+                    <a href="itinerary.html" class="nav-link">Itinerary</a>
                     <a href="stories.html" class="nav-link">Stories</a>
                     <a href="canvas.html" class="nav-link">Community</a>
                     <a href="resources.html" class="nav-link">Resources</a>

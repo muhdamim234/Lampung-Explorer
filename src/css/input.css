@@ -1,3 +1,13 @@
 ﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom styles di bawah */
+:root {
+    --primary: #1e40af;
+    --secondary: #0ea5e9;
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+}

@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Itinerary Planner | Lampung Explorer</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -305,7 +305,7 @@
                                             <div class="mb-4">
                                                 <h4 class="font-semibold mb-2 text-gray-700">Route:</h4>
                                                 <div class="flex items-center text-gray-600">
-                                                    <span class="font-medium">Bandar Lampung → Liwa</span>
+                                                    <span class="font-medium">Bandar Lampung ? Liwa</span>
                                                     <i class="fas fa-arrow-right mx-3 text-primary"></i>
                                                     <span>120 km via Trans-Sumatra Highway</span>
                                                 </div>
@@ -582,7 +582,7 @@
                         Calculate distances, travel times, and optimal routes between cultural sites.
                     </p>
                     <a href="#" class="text-primary font-semibold hover:underline">
-                        Open Calculator →
+                        Open Calculator ?
                     </a>
                 </div>
                 
@@ -595,7 +595,7 @@
                         Estimate costs for transportation, accommodation, and entrance fees.
                     </p>
                     <a href="#" class="text-primary font-semibold hover:underline">
-                        Estimate Budget →
+                        Estimate Budget ?
                     </a>
                 </div>
                 
@@ -608,7 +608,7 @@
                         Best times to visit based on weather, festivals, and cultural events.
                     </p>
                     <a href="#" class="text-primary font-semibold hover:underline">
-                        View Calendar →
+                        View Calendar ?
                     </a>
                 </div>
             </div>
@@ -667,7 +667,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 text-center">
-                <p class="text-gray-400">© 2024 Lampung Explorer | Non-commercial trip planning resource</p>
+                <p class="text-gray-400">� 2024 Lampung Explorer | Non-commercial trip planning resource</p>
             </div>
         </div>
     </footer>
@@ -685,7 +685,7 @@
         // Tool links
         document.querySelectorAll('a.text-primary.font-semibold').forEach(link => {
             link.addEventListener('click', function(e) {
-                if(this.textContent.includes('→')) {
+                if(this.textContent.includes('?')) {
                     e.preventDefault();
                     const toolName = this.closest('.bg-white').querySelector('h3').textContent;
                     alert(`Opening ${toolName}...`);
