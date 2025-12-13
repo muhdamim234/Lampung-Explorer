@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore | Lampung Explorer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        .hero-bg-explore {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), 
+                        url("https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80");
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .filter-tab {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-tab.active {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .place-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .place-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .browse-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .browse-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+        }
+        
+        .featured-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .featured-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 40px;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation - SAMA PERSIS dengan index.html -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center">
+                        <i class="fas fa-mountain text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Lampung Explorer</div>
+                        <div class="text-xs text-gray-500">Discover Hidden Indonesia</div>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
+                    <a href="explore.html" class="text-primary font-semibold border-b-2 border-primary">Explore</a>       
+                    <a href="stories.html" class="text-gray-700 hover:text-primary font-medium">Stories</a>
+                    <a href="itinerary.html" class="text-gray-700 hover:text-primary font-medium">Itinerary</a>
+                    <a href="resources.html" class="text-gray-700 hover:text-primary font-medium">Resources</a>
+                </div>
+                <a href="#" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                    Share Story
+                </a>
+                <button class="md:hidden">
+                    <i class="fas fa-bars text-xl text-gray-700"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg-explore text-white py-20 md:py-28">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Discover Hidden Indonesia
+            </h1>
+            <p class="text-xl mb-10 max-w-3xl mx-auto">
+                Step beyond the guidebooks. Immerse yourself in authentic experiences, cultural rhythms, and untouched landscapes that define Indonesia's soul.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-12">
+        <!-- Places Explorer Section -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Places Explorer</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Browse destinations by geography, experience type, mood, or discover hidden gems.
+                </p>
+            </div>
+            
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
+                <button class="filter-tab active px-6 py-3 rounded-full bg-white shadow-md font-medium">
+                    All Places
+                </button>
+                <button class="filter-tab px-6 py-3 rounded-full bg-white shadow-md font-medium hover:shadow-lg">
+                    Sunrise
+                </button>
+                <button class="filter-tab px-6 py-3 rounded-full bg-white shadow-md font-medium hover:shadow-lg">
+                    Photography
+                </button>
+                <button class="filter-tab px-6 py-3 rounded-full bg-white shadow-md font-medium hover:shadow-lg">
+                    Beaches
+                </button>
+                <button class="filter-tab px-6 py-3 rounded-full bg-white shadow-md font-medium hover:shadow-lg">
+                    Mountains
+                </button>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-2">
+                    <div class="flex">
+                        <div class="flex-1 p-4">
+                            <input type="text" 
+                                   placeholder="Search for cultural experiences, hidden gems, or specific locations..."
+                                   class="w-full border-none focus:outline-none text-lg text-gray-700">
+                        </div>
+                        <button class="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-8 font-semibold rounded-lg hover:opacity-90">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Places Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Place 1 -->
+                <div class="place-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-blue-100 to-blue-300 relative">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full font-semibold text-sm">
+                            Cultural Village
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Kampung Naga, West Java</h3>
+                        <p class="text-gray-600 mb-4">
+                            A traditional Sundanese village preserving ancient customs, architecture, and language untouched by modernization.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-gray-500">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>West Java</span>
+                            </div>
+                            <a href="#" class="text-primary font-semibold hover:underline">
+                                Explore Village ?
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Place 2 -->
+                <div class="place-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-purple-100 to-purple-300 relative">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full font-semibold text-sm">
+                            Sacred Site
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Borobudur Temple</h3>
+                        <p class="text-gray-600 mb-4">
+                            World's largest Buddhist temple with stone carvings telling stories in ancient Javanese and Sanskrit languages.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-gray-500">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>Central Java</span>
+                            </div>
+                            <a href="#" class="text-primary font-semibold hover:underline">
+                                Explore Temple ?
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Place 3 -->
+                <div class="place-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-orange-100 to-orange-300 relative">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full font-semibold text-sm">
+                            Mountain Trek
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Mount Bromo, East Java</h3>
+                        <p class="text-gray-600 mb-4">
+                            Sacred volcano where Tengger people maintain ancient rituals and language connected to their Hindu-Buddhist heritage.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-gray-500">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>East Java</span>
+                            </div>
+                            <a href="#" class="text-primary font-semibold hover:underline">
+                                Explore Mountain ?
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Featured Destinations -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Destinations</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Curated cultural experiences selected by our community of language explorers
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Featured 1 -->
+                <div class="featured-card">
+                    <div class="h-80 bg-gradient-to-br from-blue-200 to-cyan-300"></div>
+                    <div class="featured-overlay">
+                        <h3 class="text-2xl font-bold mb-2">Lake Toba & Batak Culture</h3>
+                        <p class="mb-4 opacity-90">
+                            Explore the world's largest volcanic lake and the unique Batak language, architecture, and musical traditions.
+                        </p>
+                        <a href="#" class="inline-block bg-white text-primary px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">
+                            Discover Batak Culture ?
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Featured 2 -->
+                <div class="featured-card">
+                    <div class="h-80 bg-gradient-to-br from-green-200 to-emerald-300"></div>
+                    <div class="featured-overlay">
+                        <h3 class="text-2xl font-bold mb-2">Bali Aga Villages</h3>
+                        <p class="mb-4 opacity-90">
+                            Visit the original Balinese villages that preserve pre-Hindu traditions, rituals, and ancient Balinese language.
+                        </p>
+                        <a href="#" class="inline-block bg-white text-primary px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">
+                            Explore Bali Aga ?
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Browse By Experience -->
+        <section>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Browse By Experience</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Find your perfect cultural journey based on what moves you
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="browse-card">
+                    <div class="text-4xl mb-4">???</div>
+                    <h4 class="text-xl font-bold mb-2">Language Immersion</h4>
+                    <p class="text-gray-600">Live with communities and learn local languages firsthand</p>
+                </div>
+                
+                <div class="browse-card">
+                    <div class="text-4xl mb-4">??</div>
+                    <h4 class="text-xl font-bold mb-2">Cultural Performances</h4>
+                    <p class="text-gray-600">Traditional dance, music, and theater experiences</p>
+                </div>
+                
+                <div class="browse-card">
+                    <div class="text-4xl mb-4">??</div>
+                    <h4 class="text-xl font-bold mb-2">Traditional Crafts</h4>
+                    <p class="text-gray-600">Learn weaving, batik, wood carving, and other crafts</p>
+                </div>
+                
+                <div class="browse-card">
+                    <div class="text-4xl mb-4">??</div>
+                    <h4 class="text-xl font-bold mb-2">Culinary Journeys</h4>
+                    <p class="text-gray-600">Food traditions and cooking with local families</p>
+                </div>
+                
+                <div class="browse-card">
+                    <div class="text-4xl mb-4">??</div>
+                    <h4 class="text-xl font-bold mb-2">Spiritual Rituals</h4>
+                    <p class="text-gray-600">Participate in traditional ceremonies and rituals</p>
+                </div>
+                
+                <div class="browse-card">
+                    <div class="text-4xl mb-4">???</div>
+                    <h4 class="text-xl font-bold mb-2">Heritage Architecture</h4>
+                    <p class="text-gray-600">Explore traditional houses and ancient structures</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer - SAMA PERSIS dengan index.html -->
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center">
+                            <i class="fas fa-mountain text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold">Lampung Explorer</div>
+                            <div class="text-xs text-gray-400">Discover Hidden Indonesia</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Discovering hidden cultures through language and tradition across Indonesia's diverse archipelago.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="explore.html" class="text-gray-400 hover:text-white">Explore</a></li>
+                        <li><a href="stories.html" class="text-gray-400 hover:text-white">Stories</a></li>
+                        <li><a href="itinerary.html" class="text-gray-400 hover:text-white">Itinerary</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white">Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Language Database</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Cultural Guides</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Research Papers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Educational Materials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i> info@lampungexplorer.id
+                        </li>
+                        <li class="text-gray-400">
+                            <i class="fas fa-phone mr-2"></i> +62 21 1234 5678
+                        </li>
+                        <li class="text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-2"></i> Jakarta, Indonesia
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-block mt-4 bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-lg font-semibold hover:opacity-90">
+                        Share Your Story
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">� 2024 Lampung Explorer | Built with Tailwind CSS + npm</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter tabs functionality
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.filter-tab').forEach(t => {
+                    t.classList.remove('active');
+                    t.classList.remove('bg-gradient-to-r', 'from-primary', 'to-secondary', 'text-white');
+                    t.classList.add('bg-white', 'text-gray-700');
+                });
+                
+                this.classList.add('active');
+                this.classList.add('bg-gradient-to-r', 'from-primary', 'to-secondary', 'text-white');
+                this.classList.remove('bg-white', 'text-gray-700');
+                
+                const filter = this.textContent;
+                console.log(`Filtering by: ${filter}`);
+            });
+        });
+        
+        // Search functionality
+        const searchBtn = document.querySelector('.bg-gradient-to-r.from-amber-400');
+        const searchInput = document.querySelector('input[type="text"]');
+        
+        searchBtn.addEventListener('click', () => {
+            if(searchInput.value.trim()) {
+                alert(`Searching for: "${searchInput.value}"`);
+            } else {
+                searchInput.focus();
+            }
+        });
+        
+        searchInput.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+        
+        // Place cards click
+        document.querySelectorAll('a.text-primary.font-semibold').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if(this.textContent.includes('?')) {
+                    e.preventDefault();
+                    const placeName = this.closest('.place-card, .featured-card').querySelector('h3').textContent;
+                    alert(`Loading details for: ${placeName}`);
+                }
+            });
+        });
+        
+        // Browse cards click
+        document.querySelectorAll('.browse-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const experience = this.querySelector('h4').textContent;
+                alert(`Browsing experiences for: ${experience}`);
+            });
+        });
+    </script>
+</body>
+</html>
